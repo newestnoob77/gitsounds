@@ -1,0 +1,109 @@
+{
+  "name": "gitsounds",
+  "displayName": "Git Sounds",
+  "version": "0.1.0",
+  "publisher": "jithusr707",
+  "description": "Play a sound you choose whenever a git action succeeds: commit, push, pull, merge and more.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newestnoob77/gitsounds"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "git",
+    "sound",
+    "fun"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "gitsounds.setSound",
+        "title": "Git Sounds: Set Sound for a Git Action"
+      },
+      {
+        "command": "gitsounds.toggle",
+        "title": "Git Sounds: Mute / Unmute"
+      }
+    ],
+    "configuration": {
+      "title": "Git Sounds",
+      "properties": {
+        "gitsounds.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Play sounds for git actions."
+        },
+        "gitsounds.commit": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git commit**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        },
+        "gitsounds.push": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git push**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        },
+        "gitsounds.pull": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git pull**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        },
+        "gitsounds.fetch": {
+          "type": "string",
+          "default": "off",
+          "markdownDescription": "Sound for **git fetch**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file. Off by default because VS Code auto-fetches every few minutes."
+        },
+        "gitsounds.merge": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git merge**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        },
+        "gitsounds.checkout": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git checkout**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        },
+        "gitsounds.rebase": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git rebase**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        },
+        "gitsounds.reset": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git reset**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        },
+        "gitsounds.stash": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git stash**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        },
+        "gitsounds.cherry-pick": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git cherry-pick**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        },
+        "gitsounds.revert": {
+          "type": "string",
+          "default": "default",
+          "markdownDescription": "Sound for **git revert**: `default` (built-in), `off`, or the full path to a .wav/.mp3 file."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test",
+    "sounds": "node scripts/make-sounds.js",
+    "package": "npx @vscode/vsce package"
+  }
+}
